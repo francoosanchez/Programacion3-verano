@@ -1,4 +1,4 @@
-//Programa que solicita dos numeroos y una operacion y muestra el resultado
+package clase1.src;//Programa que solicita dos numeroos y una operacion y muestra el resultado
 
 import java.util.ArrayList;
 

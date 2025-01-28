@@ -1,3 +1,5 @@
+package clase1.src;
+
 public abstract class Vehiculo {
     private String matricula;
     private String marca;

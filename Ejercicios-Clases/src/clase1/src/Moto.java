@@ -1,3 +1,5 @@
+package clase1.src;
+
 public class Moto extends Vehiculo {
     String tipoMoto;
 
