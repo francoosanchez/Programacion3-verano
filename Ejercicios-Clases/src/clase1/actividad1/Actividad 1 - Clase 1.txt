@@ -1,0 +1,19 @@
+Actividad 1 – Clase 1
+
+Buscar en internet o usar inteligencia artificial, para realizar una pequeña comparación de lenguajes de programación, y realizar un breve informe, indicando la fuente consultada.
+
+Elegí tres lenguajes para investigar y realizar este breve informe. Para ello utilicé Chat GPT como fuente.
+
+Java
+El primer lenguaje que seleccioné es Java, es un lenguaje de programación de propósito general, orientado a objetos y de tipado estático. Fue diseñado para ser portable, lo que significa que permite escribir código una vez y ejecutarlo en cualquier plataforma compatible con la Máquina Virtual de Java (JVM). 
+Java es ampliamente utilizado en aplicaciones empresariales, desarrollo móvil (especialmente en Android), servidores web y sistemas distribuidos. Sus principales características incluyen manejo automático de memoria mediante un recolector de basura, una sintaxis estructurada y una extensa biblioteca estándar que facilita la construcción de aplicaciones robustas y seguras. 
+Comparado con otros lenguajes, como Python, su sintaxis es más estricta y verbosa, mientras que frente a C++, sacrifica control de bajo nivel en favor de la automatización y la simplicidad en el manejo de recursos.
+
+Python
+En otro lugar tenemos Python, que también es un lenguaje de programación de propósito general, interpretado y de tipado dinámico, conocido por su sintaxis simple y legible. Diseñado para ser fácil de aprender y usar, Python soporta múltiples paradigmas de programación, incluyendo orientado a objetos, funcional e imperativo. 
+Es ideal para prototipado rápido, scripts, inteligencia artificial, análisis de datos, desarrollo web y aplicaciones científicas, gracias a su vasta colección de bibliotecas. 
+Aunque es más lento que lenguajes como Java y C++ debido a su naturaleza interpretada, su facilidad de uso y versatilidad lo convierten en una opción popular tanto para principiantes como para profesionales. A diferencia de C++, Python automatiza completamente el manejo de memoria y recursos, pero no ofrece el mismo nivel de control sobre el hardware.
+
+C++
+En último lugar, el otro lenguaje seleccionado es C++, es un lenguaje de programación de propósito general y de tipado estático, conocido por su alto rendimiento y control de bajo nivel sobre el hardware. Heredero del lenguaje C, incorpora paradigmas como el imperativo, orientado a objetos y funcional, ofreciendo flexibilidad para desarrollar sistemas operativos, motores de videojuegos, aplicaciones gráficas y cualquier software que requiera máxima eficiencia. 
+Aunque ofrece un rendimiento superior comparado con Java y Python, su complejidad y curva de aprendizaje más pronunciada lo hacen menos accesible para principiantes. En contraste con Java, C++ no cuenta con un recolector de basura automático, lo que implica mayor responsabilidad del programador para gestionar recursos correctamente.
