@@ -13,7 +13,7 @@ package clase1.actividad2;
     Imprime los resultados en consola.
  */
 
-public class ej2 {
+public class c1_act2 {
     public static void main(String[] args) {
         int edad = 24;
         double altura = 1.64;
