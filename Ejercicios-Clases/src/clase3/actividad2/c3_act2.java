@@ -1,6 +1,12 @@
 package clase3.actividad2;
 
-public class ej2 {
+/*
+Actividad 2
+
+Utilizar la implementación de la búsqueda binaria que está en el repo de la materia, para buscar un elemento en un array ordenado.
+ */
+
+public class c3_act2 {
 
     // Método para realizar la búsqueda binaria
     public static int busquedaBinaria(int[] arreglo, int objetivo) {

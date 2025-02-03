@@ -8,7 +8,7 @@ package clase2.actividad5;
     Realice el análisis de recurrencia.
  */
 
-public class ej5 {
+public class c2_act5 {
 
     public static int sumaRecursiva (int n) {
         if (n<=0){

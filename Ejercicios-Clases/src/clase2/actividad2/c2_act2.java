@@ -6,7 +6,7 @@ package clase2.actividad2;
     Escribe un programa que multiplique dos matrices cuadradas de tamaño n×n Calcular la complejidad asintótica y justificar.
  */
 
-public class ej2 {
+public class c2_act2 {
 
     public static void main(String[] args) {
         // Definir las matrices A y B

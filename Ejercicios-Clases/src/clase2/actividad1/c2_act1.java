@@ -7,7 +7,7 @@ package clase2.actividad1;
     Calcular la complejidad asintótica.
  */
 
-public class ej1 {
+public class c2_act1 {
 
     public static void main(String[] args) {
         int[][] matriz = {{4, 5, 6}, {7, 8, 9}, {5, 6, 7}};

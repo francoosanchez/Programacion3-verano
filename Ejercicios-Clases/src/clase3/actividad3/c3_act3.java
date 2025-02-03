@@ -1,6 +1,14 @@
 package clase3.actividad3;
 
-public class ej3 {
+import java.util.Arrays;
+
+/* 
+Actividad 3
+
+Dado un array desordenado, ordenarlo utilizando quicksort. Utilizar el código base que está en el repo de la materia.
+ */
+
+public class c3_act3 { 
 
     // Método para realizar el ordenamiento QuickSort
     public static void quickSort(int[] arreglo, int bajo, int alto) {
@@ -36,6 +44,13 @@ public class ej3 {
         arreglo[alto] = temp;
 
         return i + 1; // Retorna el índice de la partición
+    }
+
+    public static void main(String[] args) {
+        int[] arreglo = {8, 3, 1, 7, 0, 10, 2};
+        System.out.println("Arreglo original: " + Arrays.toString(arreglo));
+        quickSort(arreglo, 0, arreglo.length - 1);
+        System.out.println("Arreglo ordenado con QuickSort: " + Arrays.toString(arreglo));
     }
 
 }
