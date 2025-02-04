@@ -4,14 +4,22 @@ package org.example.clase1;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Actividad2 {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        int edad = 30;
+        double altura = 1.75;
+        char inicial = 'J';
+        String ciudad = "Buenos Aires";
+
+
+        int sumaEdad = edad + 5;
+        double alturaDoble = altura * 2;
+        String mensaje = "Tu inicial es " + inicial;
+
+        // Imprimir resultados
+        System.out.println("Edad + 5: " + sumaEdad);
+        System.out.println("Altura * 2: " + alturaDoble);
+        System.out.println(mensaje);
+        System.out.println("Ciudad de residencia: " + ciudad);
+
     }
 }
