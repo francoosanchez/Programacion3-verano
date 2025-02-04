@@ -3,7 +3,8 @@ package clase2.actividad2;
 /*
     Actividad 2
 
-    Escribe un programa que multiplique dos matrices cuadradas de tamaño n×n Calcular la complejidad asintótica y justificar.
+    Escribe un programa que multiplique dos matrices cuadradas de tamaño n×n 
+    Calcular la complejidad asintótica y justificar.
  */
 
 public class c2_act2 {
