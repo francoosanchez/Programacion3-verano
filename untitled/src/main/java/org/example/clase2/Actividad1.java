@@ -1,17 +1,23 @@
 package org.example.clase2;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Actividad1 {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int[][] mat = {{4, 5, 6}, {7, 8, 9}, {5, 6, 7}};
+        int n = mat.length; // Obtener tamaño de la matriz
+        int suma = 0; // Inicializar la suma
+        int elementos = n * n; // Calcular número total de elementos
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Recorrer la matriz y sumar los elementos
+        for (int i = 0; i < n; i++) { // (1) Bucle sobre filas
+            for (int j = 0; j < n; j++) { // (2) Bucle sobre columnas
+                suma += mat[i][j]; // (3) Sumar elemento actual
+            }
         }
+
+        // Calcular promedio
+        double promedio = (double) suma / elementos; // (4) División para calcular promedio
+
+        // Mostrar resultado
+        System.out.println("El promedio de la matriz es: " + promedio); // (5) Imprimir resultado
     }
 }
