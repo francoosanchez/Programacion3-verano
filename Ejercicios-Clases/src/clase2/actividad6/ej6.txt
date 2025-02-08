@@ -1,1 +1,7 @@
-Se generaron las branches "franco", "martin" y "agustin" para que cada uno de los integrantes del Equipo N°5 pueda subir la resolución de los ejercicios individualmente.
+Actividad 6
+
+Crear una rama por participante en el repo del equipo en github y subir
+(“pushear”) todas las actividades a su rama.
+También subir las actividades a teams.
+
+- Se generaron las branches "franco", "martin" y "agustin" para que cada uno de los integrantes del Equipo N°5 pueda subir la resolución de los ejercicios individualmente.

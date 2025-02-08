@@ -4,7 +4,9 @@ import java.util.*;
 /*
     Actividad 1
 
-    Dada una lista de monedas con denominaciones convencionales (10,1,5,2,10,10,5,2,5,5,5,5,5,5,10), implementar una función greedy que devuelva o genere una lista de monedas para dar cambio exacto utilizando una lista de monedas disponible para un importe de $33. Devolver una lista nula o lanzar una excepción, si no se puede dar el cambio.
+    Dada una lista de monedas con denominaciones convencionales (10,1,5,2,10,10,5,2,5,5,5,5,5,5,10), implementar una función greedy 
+    que devuelva o genere una lista de monedas para dar cambio exacto utilizando una lista de monedas disponible para un importe de $33. 
+    Devolver una lista nula o lanzar una excepción, si no se puede dar el cambio.
     Realizar pseudocódigo e implementación en Java. Indicar la complejidad algorítmica.
 
  */

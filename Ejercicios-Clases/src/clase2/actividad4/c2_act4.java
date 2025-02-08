@@ -5,7 +5,8 @@ import java.math.BigInteger;
 /*
     Actividad 3
 
-    ¿Cómo usaría los tipos de datos long y BigInteger para calcular el factorial? Realizar la implementación en java.
+    ¿Cómo usaría los tipos de datos long y BigInteger para calcular el factorial? 
+    Realizar la implementación en java.
  */
 
 public class c2_act4 {
