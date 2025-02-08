@@ -1,0 +1,18 @@
+package clase7.actividad4;
+
+/*
+    Actividad 4
+
+    Problema: Selección de paquetes de inversión
+    Eres un gestor financiero y tienes la tarea de seleccionar entre varios paquetes de inversión para maximizar las ganancias. 
+    Cada paquete tiene un costo inicial y una ganancia estimada. 
+    Sin embargo, tu presupuesto es limitado, por lo que debes elegir cuidadosamente qué paquetes comprar para maximizar las ganancias sin exceder el presupuesto.
+    Requerimientos:
+    Te proporcionarán un arreglo de costos, donde cada elemento representa el costo de un paquete de inversión.
+    También recibirás un arreglo de ganancias que representa la ganancia esperada de cada paquete.
+    Debes implementar un algoritmo que determine la combinación de paquetes que maximiza las ganancias totales sin superar el presupuesto disponible.
+ */
+
+public class c7_act4 {
+    
+}
