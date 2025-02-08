@@ -1,10 +1,26 @@
 package clase6.actividad2;
 
-public class Grafo {
+/*
+    Actividad 2
+
+    Implementación de un c6_act2 en una Matriz de Adyacencia
+    Objetivo: Implementar un c6_act2 utilizando una matriz de adyacencia en Java y realizar varias operaciones para manipular y consultar el c6_act2.
+    Descripción del Problema:
+    Dado un c6_act2 dirigido, tu tarea es implementar las siguientes operaciones utilizando una matriz de adyacencia:
+    Operaciones: 
+    - Inicialización del c6_act2
+    - Agregar Arista
+    - Eliminar Arista
+    - Verificar Arista
+    - Listar Adyacentes
+    - Contar Grado de Entrada y Salida: Implementa métodos para contar el grado de salida (número de aristas que salen) y el grado de entrada (número de aristas que entran) de un vértice dado.
+ */
+
+public class c6_act2 {
     private int[][] matriz;
     private int numVertices;
 
-    public Grafo(int numVertices) {
+    public c6_act2(int numVertices) {
         this.numVertices = numVertices;
         this.matriz = new int[numVertices][numVertices];
     }
@@ -57,24 +73,24 @@ public class Grafo {
     }
 
     public static void main(String[] args) {
-        Grafo grafo = new Grafo(5); // Grafo con 5 vértices
+        c6_act2 c6_act2 = new c6_act2(5); // c6_act2 con 5 vértices
 
-        grafo.agregarArista(0, 1);
-        grafo.agregarArista(1, 2);
-        grafo.agregarArista(3, 4);
+        c6_act2.agregarArista(0, 1);
+        c6_act2.agregarArista(1, 2);
+        c6_act2.agregarArista(3, 4);
 
         // Verificar arista
-        System.out.println("¿Existe arista entre 0 y 1? " + grafo.verificarArista(0, 1));
+        System.out.println("¿Existe arista entre 0 y 1? " + c6_act2.verificarArista(0, 1));
 
         // Listar adyacentes
-        grafo.listarAdyacentes(1);
+        c6_act2.listarAdyacentes(1);
 
         // Contar grados
-        System.out.println("Grado de salida de 1: " + grafo.gradoSalida(1));
-        System.out.println("Grado de entrada de 2: " + grafo.gradoEntrada(2));
+        System.out.println("Grado de salida de 1: " + c6_act2.gradoSalida(1));
+        System.out.println("Grado de entrada de 2: " + c6_act2.gradoEntrada(2));
 
         // Eliminar arista
-        grafo.eliminarArista(0, 1);
-        System.out.println("¿Existe arista entre 0 y 1 después de eliminar? " + grafo.verificarArista(0, 1));
+        c6_act2.eliminarArista(0, 1);
+        System.out.println("¿Existe arista entre 0 y 1 después de eliminar? " + c6_act2.verificarArista(0, 1));
     }
 }
