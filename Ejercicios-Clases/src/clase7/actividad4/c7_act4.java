@@ -11,6 +11,13 @@ package clase7.actividad4;
     Te proporcionarán un arreglo de costos, donde cada elemento representa el costo de un paquete de inversión.
     También recibirás un arreglo de ganancias que representa la ganancia esperada de cada paquete.
     Debes implementar un algoritmo que determine la combinación de paquetes que maximiza las ganancias totales sin superar el presupuesto disponible.
+    Datos de Ejemplo:
+    Costos de los paquetes de inversión: [12, 20, 15, 25]
+    Ganancias esperadas: [150, 200, 100, 300]
+    Presupuesto disponible: 35
+    El programa debe calcular cuál es la ganancia máxima que puedes obtener respetando el presupuesto.
+    Calcular utilizando algoritmos de programación dinámica. 
+    Indicar complejidades.
  */
 
 public class c7_act4 {
