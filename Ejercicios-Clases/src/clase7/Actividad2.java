@@ -1,4 +1,4 @@
 package clase7;
 
-public class actividad2 {
+public class Actividad2 {
 }
