@@ -107,4 +107,3 @@ public class c6_act3 {
         System.out.println("Costo total mínimo de la red eléctrica: " + costoTotalMST);
     }
 }
-

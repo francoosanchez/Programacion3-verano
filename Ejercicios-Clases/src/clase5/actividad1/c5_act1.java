@@ -1,5 +1,7 @@
 package clase5.actividad1;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /*
     Actividad 1
@@ -30,40 +32,10 @@ PSEUDOCÓDIGO
 */
 
 public class c5_act1 {
-    
-    // Método para realizar el ordenamiento QuickSort
-    public static void quickSort(int[] arreglo, int bajo, int alto) {
-        if (bajo < alto) {
-            int indiceParticion = particion(arreglo, bajo, alto);
-            quickSort(arreglo, bajo, indiceParticion - 1);
-            quickSort(arreglo, indiceParticion + 1, alto);
-        }
-    }
-
-    // Método para particionar el arreglo
-    private static int particion(int[] arreglo, int bajo, int alto) {
-        int pivote = arreglo[alto]; // Se elige el último elemento como pivote
-        int i = bajo - 1; 
-
-        for (int j = bajo; j < alto; j++) {
-            if (arreglo[j] >= pivote) { // Orden descendente
-                i++;
-                int temp = arreglo[i];
-                arreglo[i] = arreglo[j];
-                arreglo[j] = temp;
-            }
-        }
-
-        int temp = arreglo[i + 1];
-        arreglo[i + 1] = arreglo[alto];
-        arreglo[alto] = temp;
-
-        return i + 1; 
-    }
 
     public static List<Integer> darCambio(int[] monedas, int importe) throws Exception {
         // Ordenar las monedas de mayor a menor usando QuickSort
-        quickSort(monedas, 0, monedas.length - 1);
+        quickSort.quickSort(monedas, 0, monedas.length - 1); // Llamada correcta a quickSort
 
         List<Integer> cambio = new ArrayList<>();
         for (int moneda : monedas) {
