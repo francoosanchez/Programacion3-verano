@@ -14,6 +14,65 @@ package clase8.actividad2;
     considerando las diferentes rutas disponibles.
  */
 
-public class c8_act2 {
-    
-}
+ public class c8_act2 {
+     final static int INF = 99999; // Representación de infinito
+     
+     public static void main(String[] args) {
+         c8_act2 fw = new c8_act2();
+         int graph[][] = {
+                 {0, 2, INF, 5},
+                 {INF, 0, INF, 4},
+                 {INF, INF, 0, INF},
+                 {INF, INF, 2, 0}
+         };
+         int V = graph.length;
+         fw.floydWarshall(graph, V);
+     }
+     
+     void floydWarshall(int graph[][], int V) {
+         int dist[][] = new int[V][V];
+         
+         // Inicializar la matriz de distancias
+         for (int i = 0; i < V; i++) {
+             for (int j = 0; j < V; j++) {
+                 dist[i][j] = graph[i][j];
+             }
+         }
+         
+         // Aplicación del algoritmo de Floyd-Warshall
+         for (int k = 0; k < V; k++) {
+             for (int i = 0; i < V; i++) {
+                 for (int j = 0; j < V; j++) {
+                     if (dist[i][k] != INF && dist[k][j] != INF && dist[i][k] + dist[k][j] < dist[i][j]) {
+                         dist[i][j] = dist[i][k] + dist[k][j];
+                     }
+                 }
+             }
+         }
+         
+         // Comprobación de ciclos negativos
+         for (int i = 0; i < V; i++) {
+             if (dist[i][i] < 0) {
+                 System.out.println("El sistema de rutas contiene un ciclo negativo.");
+                 return;
+             }
+         }
+         
+         // Imprimir la matriz de distancias
+         printSolution(dist, V);
+     }
+     
+     void printSolution(int dist[][], int V) {
+         System.out.println("Matriz de tiempos mínimos entre cada par de centros de distribución:");
+         for (int i = 0; i < V; i++) {
+             for (int j = 0; j < V; j++) {
+                 if (dist[i][j] == INF)
+                     System.out.print("INF ");
+                 else
+                     System.out.print(dist[i][j] + "   ");
+             }
+             System.out.println();
+         }
+     }
+ }
+ 
