@@ -50,13 +50,13 @@ public class c6_act1 {
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         TreeMap<Integer, ArrayList<Integer>> relaciones = new TreeMap<Integer, ArrayList<Integer>>();
 
-        Usuario nico = new Usuario(0, "Nico");
-        Usuario usuario1 = new Usuario(0, "Nico 2");
-        Usuario usuario2 = new Usuario(0, "Nico 3");
-        Usuario usuario3 = new Usuario(0, "Nico 4");
-        Usuario usuario4 = new Usuario(0, "Nico 5");
+        Usuario usuario0 = new Usuario(0, "Franco");
+        Usuario usuario1 = new Usuario(0, "Pablo");
+        Usuario usuario2 = new Usuario(0, "Nicolas");
+        Usuario usuario3 = new Usuario(0, "Manuel");
+        Usuario usuario4 = new Usuario(0, "Agustin");
 
-        usuarios.add(nico);
+        usuarios.add(usuario0);
         usuarios.add(usuario1);
         usuarios.add(usuario2);
         usuarios.add(usuario3);
