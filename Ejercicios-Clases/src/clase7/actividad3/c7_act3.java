@@ -41,9 +41,9 @@ public class c7_act3 {
 
     public static void main(String[] args) 
     {
-        int[] costos = {5, 3, 4};
-        int[] beneficios = {60,50,70};
-        int presupuesto = 8;
+        int[] costos = {10, 15, 20, 25};
+        int[] beneficios = {100, 200, 150, 300};
+        int presupuesto = 40;
 
         int beneficiosMaximo = optimizarPresupuesto(costos, beneficios, presupuesto);
         System.out.println("Beneficio máximo con el presupuesto " + presupuesto + " es: " + beneficiosMaximo);
