@@ -7,8 +7,8 @@ public class Actividad5 {
     }
 
     public static void main(String[] args) {
-        int n = 10;
+        int n = 3;
         System.out.println("La suma de los primeros " + n + " números es: " + sumaRecursiva(n));
-        // Salida esperada: 55
+        // Salida esperada: 15
     }
 }
