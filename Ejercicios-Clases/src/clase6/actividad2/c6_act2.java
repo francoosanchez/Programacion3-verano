@@ -73,7 +73,7 @@ public class c6_act2 {
     }
 
     public static void main(String[] args) {
-        c6_act2 c6_act2 = new c6_act2(5); // c6_act2 con 5 vértices
+        c6_act2 c6_act2 = new c6_act2(5);
 
         c6_act2.agregarArista(0, 1);
         c6_act2.agregarArista(1, 2);
