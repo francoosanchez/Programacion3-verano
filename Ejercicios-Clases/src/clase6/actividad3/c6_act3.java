@@ -7,107 +7,104 @@ package clase6.actividad3;
     Una empresa de energía necesita conectar varias estaciones eléctricas en una región para asegurar que toda la zona esté alimentada de manera eficiente. 
     Las estaciones están ubicadas en diferentes ciudades y los costos de instalación de las líneas eléctricas entre ellas varían según la distancia y el terreno.
     Tareas:
-    Representar el grafo utilizando una lista de adyacencia.
-    Aplicar el algoritmo de Prim para determinar el Árbol de Recubrimiento Mínimo.
-    Mostrar el conjunto de conexiones resultante y calcular el costo total.
- */
+    - Representar el grafo utilizando una lista de adyacencia.
+    - Aplicar el algoritmo de Prim para determinar el Árbol de Recubrimiento Mínimo.
+    - Mostrar el conjunto de conexiones resultante y calcular el costo total.
+*/
 
 import java.util.*;
 
-class Grafo {
-    private int numEstaciones;
-    private LinkedList<Arista>[] listaAdyacencia;
+public class c6_act3 {
 
-    // Constructor
-    public Grafo(int numEstaciones) {
-        this.numEstaciones = numEstaciones;
-        listaAdyacencia = new LinkedList[numEstaciones];
-        for (int i = 0; i < numEstaciones; i++) {
-            listaAdyacencia[i] = new LinkedList<>();
-        }
-    }
+    static class RedElectrica {
 
-    // Clase interna para representar una arista
-    static class Arista {
-        int destino;
-        int peso;
+        private List<List<int[]>> red;
+        private int numEstaciones;
 
-        public Arista(int destino, int peso) {
-            this.destino = destino;
-            this.peso = peso;
-        }
-    }
-
-    // Método para agregar una arista
-    public void agregarArista(int origen, int destino, int peso) {
-        listaAdyacencia[origen].add(new Arista(destino, peso));
-        listaAdyacencia[destino].add(new Arista(origen, peso));
-    }
-
-    // Algoritmo de Prim para encontrar el Árbol de Recubrimiento Mínimo
-    public void prim(int origen) {
-        boolean[] visitado = new boolean[numEstaciones];
-        int[] clave = new int[numEstaciones];
-        int[] padre = new int[numEstaciones];
-        PriorityQueue<Arista> colaPrioridad = new PriorityQueue<>(Comparator.comparingInt(a -> a.peso));
-
-        // Inicializar
-        Arrays.fill(clave, Integer.MAX_VALUE);
-        Arrays.fill(padre, -1);
-        clave[origen] = 0;
-        colaPrioridad.add(new Arista(origen, 0));
-
-        while (!colaPrioridad.isEmpty()) {
-            Arista actual = colaPrioridad.poll();
-            int u = actual.destino;
-
-            // Si ya fue visitado, continuar
-            if (visitado[u]) continue;
-            visitado[u] = true;
-
-            // Recorrer las aristas del nodo u
-            for (Arista arista : listaAdyacencia[u]) {
-                int v = arista.destino;
-                int peso = arista.peso;
-
-                // Si v no está visitado y el peso de la arista es menor que la clave de v
-                if (!visitado[v] && peso < clave[v]) {
-                    clave[v] = peso;
-                    padre[v] = u;
-                    colaPrioridad.add(new Arista(v, peso));
-                }
+        // Constructor: inicializa la red de distribución
+        RedElectrica(int numEstaciones) {
+            this.numEstaciones = numEstaciones;
+            red = new ArrayList<>(numEstaciones);
+            for (int i = 0; i < numEstaciones; i++) {
+                red.add(new ArrayList<>());
             }
         }
 
-        // Mostrar el conjunto de conexiones y calcular el costo total
-        mostrarResultado(padre, clave);
-    }
-
-    // Mostrar el resultado del Árbol de Recubrimiento Mínimo
-    private void mostrarResultado(int[] padre, int[] clave) {
-        int costoTotal = 0;
-        System.out.println("Conexiones del Árbol de Recubrimiento Mínimo:");
-        for (int i = 1; i < numEstaciones; i++) {
-            System.out.println("Estación " + padre[i] + " -> Estación " + i + " (Costo: " + clave[i] + ")");
-            costoTotal += clave[i];
+        // Método para agregar líneas eléctricas entre estaciones
+        public void agregarLineaElectrica(int estacion1, int estacion2, int costo) {
+            red.get(estacion1).add(new int[]{estacion2, costo});
+            red.get(estacion2).add(new int[]{estacion1, costo});
         }
-        System.out.println("Costo total: " + costoTotal);
+
+        // Método para calcular la red óptima de distribución (MST) usando Prim
+        public int calcularRedOptima() {
+            boolean[] conectado = new boolean[numEstaciones];
+            PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+            int costoTotal = 0;
+            List<int[]> conexionesOptimas = new ArrayList<>(); // Lista de líneas eléctricas en la red óptima
+
+            // Comenzamos desde la estación 0
+            pq.add(new int[]{0, 0, -1}); // {estacion, costo, origen}
+
+            while (!pq.isEmpty()) {
+                int[] actual = pq.poll();
+                int estacion = actual[0];
+                int costo = actual[1];
+                int origen = actual[2];
+
+                if (conectado[estacion]) {
+                    continue; // Si ya está conectada, ignorarla
+                }
+                conectado[estacion] = true;
+                costoTotal += costo;
+
+                // Guardar la conexión en la red óptima (evitamos la raíz -1)
+                if (origen != -1) {
+                    conexionesOptimas.add(new int[]{origen, estacion, costo});
+                }
+
+                for (int[] vecino : red.get(estacion)) {
+                    int estacionVecina = vecino[0];
+                    int costoVecino = vecino[1];
+
+                    if (!conectado[estacionVecina]) {
+                        pq.add(new int[]{estacionVecina, costoVecino, estacion});
+                    }
+                }
+            }
+
+            // Mostrar las conexiones de la red óptima
+            System.out.println("Líneas eléctricas en la red óptima:");
+            for (int[] conexion : conexionesOptimas) {
+                System.out.println("Estación " + conexion[0] + " --- Estación " + conexion[1] + " (Costo: " + conexion[2] + ")");
+            }
+
+            return costoTotal;
+        }
     }
 
     public static void main(String[] args) {
-        // Crear un grafo de 5 estaciones
-        Grafo grafo = new Grafo(5);
+        RedElectrica red = new RedElectrica(6);
 
-        // Agregar conexiones (aristas) entre las estaciones con sus respectivos costos
-        grafo.agregarArista(0, 1, 10);
-        grafo.agregarArista(0, 2, 5);
-        grafo.agregarArista(1, 2, 2);
-        grafo.agregarArista(1, 3, 1);
-        grafo.agregarArista(2, 3, 9);
-        grafo.agregarArista(2, 4, 7);
-        grafo.agregarArista(3, 4, 3);
+        red.agregarLineaElectrica(0, 1, 2);
+        red.agregarLineaElectrica(0, 2, 7);
+        red.agregarLineaElectrica(0, 3, 15);
+        red.agregarLineaElectrica(0, 4, 4);
+        red.agregarLineaElectrica(0, 5, 3);
 
-        // Llamar al algoritmo de Prim desde la estación 0
-        grafo.prim(0);
+        red.agregarLineaElectrica(1, 2, 3);
+        red.agregarLineaElectrica(1, 4, 2);
+
+        red.agregarLineaElectrica(2, 3, 6);
+        red.agregarLineaElectrica(2, 5, 3);
+
+        red.agregarLineaElectrica(3, 5, 1);
+        red.agregarLineaElectrica(3, 4, 1);
+
+        red.agregarLineaElectrica(4, 5, 3);
+
+        int costoTotalMST = red.calcularRedOptima();
+        System.out.println("Costo total mínimo de la red eléctrica: " + costoTotalMST);
     }
 }
+
