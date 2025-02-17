@@ -15,92 +15,70 @@ package clase11.actividad3;
     encontrar todas las configuraciones posibles de colocación de computadoras e
     impresoras en el tablero de 4x4. Tu programa debe imprimir cada configuración válida.
  */
+
 public class c11_act3 {
+    static int N = 4;
+    static char[][] oficina = new char[N][N];
+    static boolean[] colComputadoras = new boolean[N];
+    static boolean[] colImpresoras = new boolean[N];
 
-    // Función para verificar si es seguro colocar un escritorio o una silla en la posición (fila, columna)
-    public static boolean esSeguro(int[][] habitacion, int fila, int columna) {
-        // Verificamos si ya hay un escritorio o silla en la misma fila
-        for (int i = 0; i < fila; i++) {
-            if (habitacion[i][columna] != 0) {
-                return false;
-            }
-        }
-        // Verificamos si ya hay un escritorio o silla en la misma columna
-        for (int j = 0; j < columna; j++) {
-            if (habitacion[fila][j] != 0) {
-                return false;
-            }
-        }
-
-        // Si no hay conflictos, es seguro colocar el escritorio o silla
-        return true;
+    public static void main(String[] args) {
+        inicializarOficina();
+        backtracking(0, 0, 0, 0);
     }
 
-    // Función recursiva para colocar los escritorios y sillas usando backtracking
-    public static void colocarElementos(int[][] habitacion, int fila, int escritoriosRestantes, int sillasRestantes) {
-        // Caso base: si hemos colocado todos los escritorios y sillas, imprimimos la habitación
-        if (escritoriosRestantes == 0 && sillasRestantes == 0) {
-            imprimirHabitacion(habitacion);
+    static void inicializarOficina() {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                oficina[i][j] = '.'; // Espacios vacíos
+            }
+        }
+    }
+
+    static void backtracking(int fila, int col, int computadorasColocadas, int impresorasColocadas) {
+        if (computadorasColocadas == 4 && impresorasColocadas == 4) { // Si se colocaron las 4 computadoras y 4 impresoras
+            imprimirOficina();
             return;
         }
 
-        // Recorremos cada columna en la fila actual
-        for (int columna = 0; columna < habitacion.length; columna++) {
-            // Intentamos colocar un escritorio si quedan escritorios por colocar
-            if (escritoriosRestantes > 0 && esSeguro(habitacion, fila, columna)) {
-                // Colocamos un escritorio (representado por 1)
-                habitacion[fila][columna] = 1;
-
-                // Llamada recursiva para intentar colocar el siguiente elemento
-                colocarElementos(habitacion, fila + 1, escritoriosRestantes - 1, sillasRestantes);
-
-                // Backtracking: quitamos el escritorio
-                habitacion[fila][columna] = 0;
-            }
-
-            // Intentamos colocar una silla si quedan sillas por colocar
-            if (sillasRestantes > 0 && esSeguro(habitacion, fila, columna)) {
-                // Colocamos una silla (representada por 2)
-                habitacion[fila][columna] = 2;
-
-                // Llamada recursiva para intentar colocar el siguiente elemento
-                colocarElementos(habitacion, fila + 1, escritoriosRestantes, sillasRestantes - 1);
-
-                // Backtracking: quitamos la silla
-                habitacion[fila][columna] = 0;
-            }
+        if (fila >= N) {
+            return;
         }
+
+        if (col >= N) {
+            backtracking(fila + 1, 0, computadorasColocadas, impresorasColocadas);
+            return;
+        }
+
+        // Intentamos colocar una computadora
+        if (computadorasColocadas < 4 && !colComputadoras[col]) {
+            oficina[fila][col] = 'C';
+            colComputadoras[col] = true;
+            backtracking(fila + 1, 0, computadorasColocadas + 1, impresorasColocadas);
+            oficina[fila][col] = '.';
+            colComputadoras[col] = false;
+        }
+
+        // Intentamos colocar una impresora
+        if (impresorasColocadas < 4 && !colImpresoras[col]) {
+            oficina[fila][col] = 'I';
+            colImpresoras[col] = true;
+            backtracking(fila + 1, 0, computadorasColocadas, impresorasColocadas + 1);
+            oficina[fila][col] = '.';
+            colImpresoras[col] = false;
+        }
+
+        // Continuamos con la siguiente columna
+        backtracking(fila, col + 1, computadorasColocadas, impresorasColocadas);
     }
 
-    // Función para imprimir la disposición de los escritorios y sillas en la habitación
-    public static void imprimirHabitacion(int[][] habitacion) {
-        for (int[] fila : habitacion) {
-            for (int valor : fila) {
-                if (valor == 1) {
-                    System.out.print("E "); // Escritorio
-                } else if (valor == 2) {
-                    System.out.print("S "); // Silla
-                } else {
-                    System.out.print(". "); // Espacio vacío
-                }
+    static void imprimirOficina() {
+        System.out.println("\nConfiguración válida:");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(oficina[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println();
     }
-
-    // Función principal para resolver el problema
-    public static void resolverUbicacion() {
-        // Creamos una habitación de 4x4 vacía
-        int[][] habitacion = new int[4][4];
-
-        // Comenzamos el proceso de backtracking para colocar los escritorios y sillas
-        colocarElementos(habitacion, 0, 2, 2); // Dos escritorios y dos sillas
-    }
-
-    // Método main para ejecutar el programa
-    public static void main(String[] args) {
-        resolverUbicacion();
-    }
-
 }
