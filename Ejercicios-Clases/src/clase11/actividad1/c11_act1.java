@@ -4,15 +4,11 @@ package clase11.actividad1;
     Actividad 1
 
     Posicionamiento de dos reinas en un tablero de 4x4 usando Backtracking
-    Descripción del Problema: Dado un tablero de ajedrez de tamaño 4x4, debes
-    encontrar todas las posibles posiciones donde se pueden colocar dos reinas de
-    tal manera que no se ataquen entre sí. El objetivo es imprimir todas las
-    configuraciones válidas del tablero. Las dos reinas no deben compartir la misma
+    Descripción del Problema: Dado un tablero de ajedrez de tamaño 4x4, debes encontrar todas las posibles posiciones donde se pueden colocar dos reinas de
+    tal manera que no se ataquen entre sí. El objetivo es imprimir todas las configuraciones válidas del tablero. Las dos reinas no deben compartir la misma
     fila, columna ni estar en la misma diagonal.
-    Para resolver este problema, deberás usar la técnica de Backtracking para
-    explorar las posibles posiciones de las reinas de manera eficiente. El backtracking
-    te permitirá descartar las configuraciones inválidas a medida que avances en la
-    construcción de las soluciones.
+    Para resolver este problema, deberás usar la técnica de Backtracking para explorar las posibles posiciones de las reinas de manera eficiente. 
+    El backtracking te permitirá descartar las configuraciones inválidas a medida que avances en la construcción de las soluciones.
  */
 public class c11_act1 {
     // Función para verificar si es seguro colocar una reina en la posición (fila, columna)
